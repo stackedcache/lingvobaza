@@ -31,3 +31,4 @@ fetch('data/phrases.json')
     console.error("Failed to load phrases.json:", err);
   });
 
+
