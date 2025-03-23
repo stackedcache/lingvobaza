@@ -1,10 +1,18 @@
 import csv 
 import os
+import re
 from gtts import gTTS
 from pydub import AudioSegment
 
 CSV_PATH = '../data/phrases.csv'
 AUDIO_OUTPUT_DIR = '../audio/phrases'
+
+# Function to sanitze file name of punctuation and symbols 
+def sanitize_filename(phrase):
+    words = phrase.lower().split()[:4]
+    base = '_'.join(words)
+    return re.sub(r'[^a-z0-9_]', '', base) # Remove all but letters, numbers, and underscores
+
 
 # Function to slow down audio 
 def slow_down(audio, factor=0.8):
@@ -36,8 +44,9 @@ for row in rows:
     english = row['english_phrase']
     russian = row['russian_phrase']
     explanation = row['explanation']
-
-    filename = f"{phrase_id}_{'_'.join(english.lower().split()[:4])}.mp3"
+    
+    safe_base = sanitize_filename(english)
+    filename = f"{phrase_id}_{safe_base}.mp3"
     category_path = os.path.join(AUDIO_OUTPUT_DIR, category)
     os.makedirs(category_path, exist_ok=True)
     output_path = os.path.join(category_path, filename)
