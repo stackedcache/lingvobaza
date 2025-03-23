@@ -25,6 +25,39 @@ the english phrase are used as the filename.
 - Then you can use the audio player of your choice to listen to the files. 
     - I am using ffplay on Debian to play files from the cli
 
+## EXAMPLE OUTPUT
+
+```bash
+$ python3 ./generate-audio-from-csv.py 
+5 Files to generate!
+[+] Generating: 1_you_can_find_him.mp3
+[+] Generating: 2_first_he_left_then.mp3
+[+] Generating: 3_he_was_angry_not.mp3
+[+] Generating: 4_although_he_was_tired.mp3
+[+] Generating: 5_he_ended_up_in.mp3
+Done generating new audio files
+```
+
+### EXAMPLE STRUCTURE 
+
+```bash
+../
+├── audio
+│   └── phrases
+│       ├── connectors
+│       │   ├── 2_first_he_left_then.mp3
+│       │   ├── 3_he_was_angry_not.mp3
+│       │   └── 4_although_he_was_tired.mp3
+│       ├── directions
+│       │   └── 1_you_can_find_him.mp3
+│       └── verbs
+│           └── 5_he_ended_up_in.mp3
+├── data
+│   └── phrases.csv
+├── README.md
+└── scripts
+    └── generate-audio-from-csv.py
+```
 
 ## FUTURE IMPROVEMENTS 
 
