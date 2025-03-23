@@ -32,7 +32,7 @@ if not to_generate:
     exit()
 else:
     count = len(to_generate)
-    print(count, " Files to generate!")
+    print(f"{count} Files to generate!")
 
 for row in rows:
     if row['audio_generated'].strip().lower() == 'yes':
