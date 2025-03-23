@@ -64,6 +64,25 @@ Done generating new audio files
     └── generate-audio-from-csv.py
 ```
 
+## LIVE AUDIO PLAYER! (Github Pages Frontend)
+
+You can use the LingvoBaza system directly from your browser or mobile:
+[Live Audio Flashcard Player](https://stackedcache.github.io/lingvobaza/)
+
+This lightweight front end lets you: 
+    - Play all generated audio files.
+    - View example sentences and explanations.
+    - Works on mobile (Bootstrap-based, dark mode)
+    - More features coming soon (maybe ;P)
+
+### TECHNICAL EXPLANATION 
+
+- The python generation script now creates a JSON file based on the spreadsheet content
+- There is a branch of this repo -- `gh-pages-frontend`
+- `gh-pages-frontend` serves as the source for GitHub pages 
+- The script.js file parses the JSON file to populate the HTML side
+- HTML5 audio players source the data from the audio folders of the repo.
+
 ## FUTURE IMPROVEMENTS 
 
 - Possibly to build a front end audio player to listen from the web on any device.
