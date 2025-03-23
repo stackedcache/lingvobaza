@@ -38,12 +38,33 @@ for row in rows:
     if row['audio_generated'].strip().lower() == 'yes':
         continue # Skip generated files 
     
-# Print and exit if all files are generated already 
+    # Print and exit if all files are generated already 
     phrase_id = row['id']
     category = row['category']
     english = row['english_phrase']
     russian = row['russian_phrase']
-    explanation = row['explanation']
+    explanation_ru_text = row['explanation_ru']
+    explanation_en_text = row['explanation_en']
+
+    explanation_segments = [] 
+
+    # Generate and save RU explanation if it exists
+    if explanation_ru_text:
+        explanation_ru_tts = gTTS(explanation_ru_text, lang='ru')
+        explanation_ru_path = 'explanation_ru_temp.mp3'
+        explanation_ru_tts.save(explanation_ru_path)
+        explanation_segments.append(AudioSegment.from_file(explanation_ru_path))
+    else:
+        explanation_ru_path = None
+
+    # Generate and save EN explanation if it exists
+    if explanation_en_text:
+        explanation_en_tts = gTTS(explanation_en_text, lang='en')
+        explanation_en_path = 'explanation_en_temp.mp3'
+        explanation_en_tts.save(explanation_en_path)
+        explanation_segments.append(AudioSegment.from_file(explanation_en_path))
+    else:
+        explanation_en_path = None
     
     safe_base = sanitize_filename(english)
     filename = f"{phrase_id}_{safe_base}.mp3"
@@ -52,42 +73,37 @@ for row in rows:
     output_path = os.path.join(category_path, filename)
 
 
-# GENERATE AUDIO SEGMENTS 
+    # GENERATE AUDIO SEGMENTS 
 
     print(f"[+] Generating: {filename}")
 
     english_tts = gTTS(english, lang='en')
     russian_tts = gTTS(russian, lang='ru')
-    explanation_tts = gTTS(explanation, lang='en') if explanation else None 
 
-# Save Temp files 
+    # Save Temp files 
     english_path = 'english_temp.mp3'
     russian_path = 'russian_temp.mp3'
-    explanation_path = 'explanation_temp.mp3'
+    explanation_ru = 'explanation_ru.mp3'
+    explanation_en = 'explanation_en.mp3'
 
     english_tts.save(english_path)
     russian_tts.save(russian_path)
-    if explanation_tts: 
-        explanation_tts.save(explanation_path)
-
-# LOAD AND PROCESS 
+    
+    # LOAD AND PROCESS 
     english_audio = AudioSegment.from_file(english_path)
     russian_audio = AudioSegment.from_file(russian_path)
     russian_slow = slow_down(russian_audio)
 
-    segments = [english_audio, russian_audio, russian_slow]
-    if explanation_tts:
-        explanation_audio = AudioSegment.from_file(explanation_path)
-        segments.append(explanation_audio)
+    segments = [english_audio, russian_audio, russian_slow] + explanation_segments
 
     final_audio = sum(segments)
     final_audio.export(output_path, format='mp3')
 
 
-# Mark as generated is csv file 
+    # Mark as generated is csv file 
     row['audio_generated'] = 'yes'
 
-    for f in [english_path, russian_path, explanation_path if explanation else None]:
+    for f in [english_path, russian_path, explanation_ru_path, explanation_en_path]:
         if f and os.path.exists(f):
             os.remove(f)
 

@@ -1,6 +1,6 @@
-id,category,english_phrase,russian_phrase,explanation,audio_generated
-1,directions,You can find him under the tree.,Его можно найти под деревом.,“Pod” = under (this is a preposition),yes
-2,connectors,"First he left, then he came back.","Сначала он ушёл, потом вернулся.","“snachala” = at first, or initially.",yes
-3,connectors,"He was angry. Not surprising, though.","Он был зол. Впрочем, не удивительно.",“vprochem” = however / though / anyway. A transition word,yes
-4,connectors,"Although he was tired, he kept working.","Хотя он устал, он продолжал роботать.","“kho-TYA” = although, even / though – used for contrast.",yes
-5,verbs,He ended up in Moscow without any money. ,Он оказался в Москве без денег.,“okazatsa” – to turn out / to end up / to find oneself,yes
+id,category,english_phrase,russian_phrase,explanation_ru,explanation_en,audio_generated
+1,directions,You can find him under the tree.,Его можно найти под деревом.,Под... Под… Под,This is the word for under (this is a preposition),yes
+2,connectors,"First he left, then he came back.","Сначала он ушёл, потом вернулся.",Сначала.. Сначала… Сначала,"at first, or initially.",yes
+3,connectors,"He was angry. Not surprising, though.","Он был зол. Впрочем, не удивительно.",Впрочем… Впрочем… Впрочем,Means however / though / anyway. A transition word.,yes
+4,connectors,"Although he was tired, he kept working.","Хотя он устал, он продолжал роботать.",Хотя… Хотя… Хотя,"Means although, even / though – used for contrast.",yes
+5,verbs,He ended up in Moscow without any money. ,Он оказался в Москве без денег.,Оказался… Оказался… Оказался,Means – to turn out / to end up / to find oneself,yes
