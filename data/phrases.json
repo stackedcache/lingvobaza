@@ -1,0 +1,42 @@
+[
+  {
+    "filename": "audio/phrases/directions/1_you_can_find_him.mp3",
+    "english": "You can find him under the tree.",
+    "russian": "Его можно найти под деревом.",
+    "explanation_ru": "Под... Под… Под",
+    "explanation_en": "This is the word for under (this is a preposition)",
+    "category": "directions"
+  },
+  {
+    "filename": "audio/phrases/connectors/2_first_he_left_then.mp3",
+    "english": "First he left, then he came back.",
+    "russian": "Сначала он ушёл, потом вернулся.",
+    "explanation_ru": "Сначала.. Сначала… Сначала",
+    "explanation_en": "at first, or initially.",
+    "category": "connectors"
+  },
+  {
+    "filename": "audio/phrases/connectors/3_he_was_angry_not.mp3",
+    "english": "He was angry. Not surprising, though.",
+    "russian": "Он был зол. Впрочем, не удивительно.",
+    "explanation_ru": "Впрочем… Впрочем… Впрочем",
+    "explanation_en": "Means however / though / anyway. A transition word.",
+    "category": "connectors"
+  },
+  {
+    "filename": "audio/phrases/connectors/4_although_he_was_tired.mp3",
+    "english": "Although he was tired, he kept working.",
+    "russian": "Хотя он устал, он продолжал роботать.",
+    "explanation_ru": "Хотя… Хотя… Хотя",
+    "explanation_en": "Means although, even / though – used for contrast.",
+    "category": "connectors"
+  },
+  {
+    "filename": "audio/phrases/verbs/5_he_ended_up_in.mp3",
+    "english": "He ended up in Moscow without any money. ",
+    "russian": "Он оказался в Москве без денег.",
+    "explanation_ru": "Оказался… Оказался… Оказался",
+    "explanation_en": "Means – to turn out / to end up / to find oneself",
+    "category": "verbs"
+  }
+]

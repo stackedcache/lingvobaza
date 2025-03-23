@@ -1,6 +1,7 @@
 import csv 
 import os
 import re
+import json 
 from gtts import gTTS
 from pydub import AudioSegment
 
@@ -28,8 +29,7 @@ with open(CSV_PATH, newline='', encoding='utf-8') as csvfile:
 # Check if files need to be generated 
 to_generate = [row for row in rows if row['audio_generated'].strip().lower() == 'no']
 if not to_generate:
-    print("All files already generated!")
-    exit()
+    print("All files already generated! Skipping audio generation")
 else:
     count = len(to_generate)
     print(f"{count} Files to generate!")
@@ -113,3 +113,42 @@ with open (CSV_PATH, 'w', newline='', encoding='utf-8') as csvfile:
     writer.writerows(rows)
 
 print("Done generating new audio files")
+
+# Create json file to feed the web frontend player 
+print("Generating json file. . .")
+
+# Build json structure for frontend 
+json_data = []
+
+for row in rows: 
+    phrase_id = row['id']
+    category = row['category']
+    english = row['english_phrase']
+    russian = row['russian_phrase']
+    explanation_ru = row['explanation_ru']
+    explanation_en = row['explanation_en']
+
+    safe_base = sanitize_filename(english)
+    filename = f"{phrase_id}_{safe_base}.mp3"
+    relative_path = f"audio/phrases/{category}/{filename}"
+
+    json_data.append({
+        "filename": relative_path,
+        "english": english,
+        "russian": russian,
+        "explanation_ru": explanation_ru,
+        "explanation_en": explanation_en,
+        "category": category
+    })
+
+# Write json file
+json_output_path = '../data/phrases.json'
+os.makedirs(os.path.dirname(json_output_path), exist_ok=True)
+
+with open(json_output_path, 'w', encoding='utf-8') as f:
+    json.dump(json_data, f, ensure_ascii=False, indent=2)
+
+print(f"JSON exported to {json_output_path}")
+
+
+
