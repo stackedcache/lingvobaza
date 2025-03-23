@@ -17,7 +17,12 @@ The CSV has the following layout:
 - For each phrase that is not generated, a subdirectory based on category is created, and the first four words of 
 the english phrase are used as the filename. 
 
-- The resulting audio file reads the English phrase, then the Russian phrase, then the Russian explanation, and then English explanation. 
+- The resulting audio file: 
+    - Reads the English phrase  
+    - Reads the Russian phrase
+    - Reads a slower version of the Russian phrase 
+    - Reads the Russian explanation
+    - Reads the English explanation. 
 
 ## USING THE SYSTEM 
 
