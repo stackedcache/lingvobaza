@@ -78,5 +78,21 @@
     "explanation_ru": "Потерял — прошедшее время глагола «потерять», совершенный вид. Потерять что? Ключи.",
     "explanation_en": "past tense of verb (to lose). Perfective aspect, completed action.",
     "category": "verbs"
+  },
+  {
+    "filename": "audio/phrases/verbs/11_i_hope_he_will.mp3",
+    "english": "I hope he will be OK.",
+    "russian": "Я надеюсь, что с ним всё будет в порядке.",
+    "explanation_ru": "Надеюсь — настоящее время глагола «надеяться», выражает надежду.",
+    "explanation_en": "I hope - the present tense of the verb \"to hope\" expresses hope.",
+    "category": "verbs"
+  },
+  {
+    "filename": "audio/phrases/verbs/12_dont_leave_your_bag.mp3",
+    "english": "Don’t leave your bag here.",
+    "russian": "Не оставляй свою сумку здесь. ",
+    "explanation_ru": "Оставляй — повелительное наклонение глагола «оставлять».",
+    "explanation_en": "Leave behind – is the imperative mood of the verb “to leave”.",
+    "category": "verbs"
   }
 ]
